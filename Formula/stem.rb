@@ -1,7 +1,7 @@
 class Stem < Formula
   desc "Apple Music MCP server — search, play, and manage Apple Music from AI tools"
-  homepage "https://github.com/charlieseay/stem"
-  url "https://github.com/charlieseay/stem.git", tag: "v0.1.0"
+  homepage "https://github.com/seayniclabs/stem"
+  url "https://github.com/seayniclabs/stem.git", tag: "v0.1.0"
   license "MIT"
 
   depends_on xcode: ["15.0", :build]
