@@ -4,11 +4,14 @@ class Stem < Formula
   url "https://github.com/seayniclabs/stem.git", tag: "v0.1.1"
   license "MIT"
 
-  depends_on xcode: ["15.0", :build]
+  depends_on xcode: ["16.3", :build]
   depends_on :macos
 
   def install
     system "swift", "build", "-c", "release", "--disable-sandbox"
+    system "codesign", "--force", "--sign", "-",
+           "--entitlements", "Sources/Stem/Stem.entitlements",
+           ".build/release/Stem"
     bin.install ".build/release/Stem" => "stem"
   end
 
