@@ -1,7 +1,7 @@
 class Bench < Formula
   desc "USB hardware discovery MCP server — identify devices and serial ports from AI tools"
   homepage "https://github.com/seayniclabs/bench"
-  url "https://github.com/seayniclabs/bench.git", tag: "v0.1.0"
+  url "https://github.com/seayniclabs/bench.git", tag: "v0.2.0"
   license "MIT"
 
   depends_on xcode: ["16.3", :build]
