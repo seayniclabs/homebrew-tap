@@ -1,18 +1,16 @@
 class Binnacle < Formula
   desc "macOS system control MCP server — Calendar, Reminders, Shortcuts, and more from AI tools"
-  homepage "https://github.com/seayniclabs/binnacle"
-  url "https://github.com/seayniclabs/binnacle.git", tag: "v0.1.0"
+  homepage "https://store.seayniclabs.com/products/binnacle"
+  url "https://github.com/seayniclabs/binnacle/releases/download/v0.1.0/binnacle-v0.1.0-arm64-macos.tar.gz"
+  sha256 "dd468fbba7dcc4b3e39b3a6a6577aef88472112d10870081010650b18e6ffb1d"
   license "MIT"
+  version "0.1.0"
 
-  depends_on xcode: ["16.3", :build]
   depends_on :macos
+  depends_on arch: :arm64
 
   def install
-    system "swift", "build", "-c", "release", "--disable-sandbox"
-    system "codesign", "--force", "--sign", "-",
-           "--entitlements", "Sources/Binnacle/Binnacle.entitlements",
-           ".build/release/Binnacle"
-    bin.install ".build/release/Binnacle" => "binnacle"
+    bin.install "Binnacle" => "binnacle"
   end
 
   def caveats
