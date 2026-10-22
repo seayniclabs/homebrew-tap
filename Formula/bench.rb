@@ -24,6 +24,15 @@ class Bench < Formula
   end
 
   test do
-    assert_match "Bench", shell_output("#{bin}/bench 2>&1", 1)
+    require "open3"
+    init = '{"jsonrpc":"2.0","id":1,"method":"initialize","params":' \
+           '{"protocolVersion":"2024-11-05","capabilities":{},"clientInfo":{"name":"brew","version":"0"}}}'
+    Open3.popen3(bin/"bench") do |stdin, stdout, _stderr, wait|
+      stdin.puts init
+      stdin.flush
+      assert_match '"name":"bench"', stdout.gets
+      stdin.close
+      wait.value
+    end
   end
 end
