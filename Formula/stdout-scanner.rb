@@ -1,7 +1,7 @@
 class StdoutScanner < Formula
   desc "Infrastructure scanner for StdOut — Docker, network, host metrics from the CLI"
-  homepage "https://github.com/charlieseay/stdout-scanner"
-  url "https://github.com/charlieseay/stdout-scanner/releases/download/v2.1.0/stdout-scanner-2.1.0-darwin-arm64.tar.gz"
+  homepage "https://github.com/seayniclabs/stdout-scanner"
+  url "https://github.com/seayniclabs/stdout-scanner/releases/download/v2.1.0/stdout-scanner-2.1.0-darwin-arm64.tar.gz"
   sha256 "e9a7c215249f40bd9f916dbd9380efc7632da2fa1dad90d471f5f3857e65599e"
   version "2.1.0"
   license :cannot_represent
