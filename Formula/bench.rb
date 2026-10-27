@@ -1,8 +1,8 @@
 class Bench < Formula
   desc "USB hardware discovery MCP server: identify maker boards, serial ports and HID from AI tools"
   homepage "https://github.com/seayniclabs/bench"
-  url "https://github.com/seayniclabs/bench/archive/refs/tags/v0.4.0.tar.gz"
-  sha256 "8b462e44f67c021ddc1c0c1a03e3f0105989509590ecd223592c0dce9258709b"
+  url "https://github.com/seayniclabs/bench/archive/refs/tags/v0.4.1.tar.gz"
+  sha256 "5d80ce1137eb3c4f52ca4eb642d038b1d344c5403195420911a45e6db8c7ce35"
   license "MIT"
 
   depends_on xcode: ["16.3", :build]
