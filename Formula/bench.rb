@@ -1,7 +1,8 @@
 class Bench < Formula
-  desc "USB hardware discovery MCP server — identify devices and serial ports from AI tools"
+  desc "USB hardware discovery MCP server: identify maker boards, serial ports and HID from AI tools"
   homepage "https://github.com/seayniclabs/bench"
-  url "https://github.com/seayniclabs/bench.git", tag: "v0.2.0"
+  url "https://github.com/seayniclabs/bench/archive/refs/tags/v0.3.0.tar.gz"
+  sha256 "892e36980333900e9ca1ff0d88d897cc2f90bff0894660d2f2ca79435773ad47"
   license "MIT"
 
   depends_on xcode: ["16.3", :build]
@@ -20,17 +21,22 @@ class Bench < Formula
       Add Bench to your AI tool:
 
         claude mcp add bench -- #{bin}/bench
+
+      Device-changing tools ask for approval. To pre-approve them, set
+      BENCH_APPROVE_DEVICE_WRITES=1. Modules are switched with BENCH_MODULES.
     EOS
   end
 
   test do
     require "open3"
     init = '{"jsonrpc":"2.0","id":1,"method":"initialize","params":' \
-           '{"protocolVersion":"2024-11-05","capabilities":{},"clientInfo":{"name":"brew","version":"0"}}}'
+           '{"protocolVersion":"2025-11-25","capabilities":{},"clientInfo":{"name":"brew","version":"0"}}}'
     Open3.popen3(bin/"bench") do |stdin, stdout, _stderr, wait|
       stdin.puts init
       stdin.flush
-      assert_match '"name":"bench"', stdout.gets
+      response = stdout.gets
+      assert_match '"name":"bench"', response
+      assert_match '"version":"0.3.0"', response
       stdin.close
       wait.value
     end
