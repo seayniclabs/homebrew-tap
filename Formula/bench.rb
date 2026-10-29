@@ -1,8 +1,8 @@
 class Bench < Formula
   desc "USB hardware discovery MCP server: identify maker boards, serial ports and HID from AI tools"
   homepage "https://github.com/seayniclabs/bench"
-  url "https://github.com/seayniclabs/bench/archive/refs/tags/v0.4.2.tar.gz"
-  sha256 "97948d506779bf5deaeddd164d478dc2826536007e8e295ed4b096586782b35c"
+  url "https://github.com/seayniclabs/bench/archive/refs/tags/v0.4.3.tar.gz"
+  sha256 "438771cb0422d8351bf746c4b6edfed171db8f13f4a7ebf4a5c9f862ed507ca7"
   license "MIT"
 
   depends_on xcode: ["16.3", :build]
@@ -42,7 +42,7 @@ class Bench < Formula
       stdin.flush
       response = stdout.gets
       assert_match '"name":"bench"', response
-      assert_match '"version":"0.4.0"', response
+      assert_match '"version":"0.4.3"', response
       stdin.puts '{"jsonrpc":"2.0","method":"notifications/initialized"}'
       stdin.flush
       sleep 1
