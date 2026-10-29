@@ -5,6 +5,7 @@ class StdoutScanner < Formula
   sha256 "e9a7c215249f40bd9f916dbd9380efc7632da2fa1dad90d471f5f3857e65599e"
   version "2.1.0"
   license :cannot_represent
+  deprecate! date: "2026-10-29", because: "is retired: StdOut is parked as a Sonique module (seayniclabs/stdout-skill)"
 
   depends_on :macos
   depends_on arch: :arm64
